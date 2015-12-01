@@ -42,7 +42,8 @@ db.projectsSchema = new Schema ({
     ]
   },
   teamLead: {type: Schema.Types.ObjectID, ref: 'User'} // ref user
-  teamMembers: [{type: Schema.Types.ObjectID, ref: 'User'}], // ref users
+  teamMembers: [{type: Schema.Types.ObjectID, ref: 'User'}],
+  unregisteredUsers: String, 
   tasks: [db.tasksSchema],
   deadline: Date
 });
@@ -79,7 +80,8 @@ db.tasksSchema = new Schema ({
 db.usersSchema = new Schema ({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  organization: [{ type: Schema.Types.ObjectId, ref: 'Org' }]
+  email: {type: String, required true},
+  organization: {type: Schema.Types.ObjectId, ref: 'Org'},
   project_list: [{ type: Schema.Types.ObjectId, ref: 'Org' }],
   task_list: [{ type: Schema.Types.ObjectId, ref: 'Org' }] 
 });
