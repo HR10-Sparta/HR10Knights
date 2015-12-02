@@ -48,7 +48,7 @@ angular.module('app', [
       authenticate: true,
     })
 
-  // $routeProvider
+    }); // $routeProvider
   //   .when('/signin', {
   //     templateUrl: '/app/auth/signin.html',
   //     controller: 'AuthController'
