@@ -1,7 +1,6 @@
 angular.module('app', [
   'directives.organizationCard',
   'app.services',
-  'services.users',
   'app.tasks',
   'app.auth',
   'ui-route',
