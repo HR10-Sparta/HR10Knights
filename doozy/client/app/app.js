@@ -1,7 +1,8 @@
 angular.module('app', [
   'directives.organizationCard',
-  'app.tasks',
   'app.services',
+  'services.users',
+  'app.tasks',
   'app.auth',
   'ui-route',
   'app.org',
@@ -10,8 +11,7 @@ angular.module('app', [
   'ngMaterial',
   'ngFx'
 ])
-<<<<<<< 13fe262f6d5e5f42eb4cac5688dbee5abcd11cee
-.config(function($stateProvider, $httpProvider, $mdThemingProvider) {
+.config(function($stateProvider, $httpProvider, $mdThemingProvider, $locationProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('green')
     .accentPalette('green', {
@@ -24,11 +24,6 @@ angular.module('app', [
 
   $stateProvider
     .state('signin', {
-=======
-.config(function($stateProvider, $httpProvider, $locationProvider) {
-  $stateProvider
-    .state('index', {
->>>>>>> UI routing fix
       url: "/" ,
       controller: 'AuthController',
       templateUrl: '/app/auth/signin.html'
@@ -40,12 +35,12 @@ angular.module('app', [
     })
     .state('user', {
       url: '/user',
-<<<<<<< 13fe262f6d5e5f42eb4cac5688dbee5abcd11cee
       controller: 'TasksController',
+      templateUrl: 'app/tasks/tasks.html',
       authenticate: true,
     })
     .state('/landing', {
-      templateUrl: 'app/tasks/tasks.html'
+      templateUrl: 'app/tasks/landing.html',
       controller: 'TasksController',
       authenticate: true
     })
@@ -53,15 +48,7 @@ angular.module('app', [
       templateUrl: '/app/org/org.html',
       controller: 'OrgController',
       authenticate: true,
-    })
-
-    }); // $routeProvider
-=======
-      templateUrl: 'app/tasks/tasks.html',
-      authenticate: true
-    })
-  // $routeProvider
->>>>>>> UI routing fix
+    });
   //   .when('/signin', {
   //     templateUrl: '/app/auth/signin.html',
   //     controller: 'AuthController'
