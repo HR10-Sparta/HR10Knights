@@ -3,7 +3,7 @@ angular.module('app', [
   'app.services',
   'app.tasks',
   'app.auth',
-  'ui-route',
+  'ui.router',
   'app.org',
   'ngRoute',
   'ngAnimate',
@@ -25,12 +25,12 @@ angular.module('app', [
     .state('signin', {
       url: "/" ,
       controller: 'AuthController',
-      templateUrl: '/app/auth/signin.html'
+      templateUrl: '/client/app/auth/signin.html'
     })
     .state('signup', {
       url: "/signup" ,
       controller: 'AuthController',
-      templateUrl: '/app/auth/signup.html'
+      templateUrl: '/client/app/auth/signup.html'
     })
     .state('user', {
       url: '/user',
@@ -39,7 +39,7 @@ angular.module('app', [
       authenticate: true,
     })
     .state('/landing', {
-      templateUrl: 'app/tasks/landing.html',
+      templateUrl: '/client/app/tasks/landing.html',
       controller: 'TasksController',
       authenticate: true
     })
@@ -89,7 +89,7 @@ angular.module('app', [
 .run(function ($rootScope, $location, Auth) {
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams){
-      if(toState && toState.data.requireLogin && !Auth.isAuth()) {
+      if(toState && toState.authenticate && !Auth.isAuth()) {
         $location.path('/');
       }
   });
