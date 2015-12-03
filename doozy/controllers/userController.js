@@ -152,7 +152,7 @@ module.exports = {
 
   removeUserFromProject: function (req, res, next){
     var projectId = req.body.projectId;
-    var userId = req.body.userId
+    var userId = req.body.userId;
     User.update({
       _id: userId
       }, {$pull: {project_list: projectId}
@@ -166,7 +166,7 @@ module.exports = {
 
   removeUserFromTask: function (req, res, next){
     var taskId = req.body.taskId;
-    var userId = req.body.userId
+    var userId = req.body.userId;
     User.update({
       _id: userId
       }, {$pull: {task_list: taskId}
