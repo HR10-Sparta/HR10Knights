@@ -44,6 +44,7 @@ angular.module('app', [
       url: '/project/:projectId',
       templateUrl: '/app/projectAndTask/projectAndTask.html',
       controller: 'ProjectAndTaskController',
+      controllerAs: 'pt',
       authenticate: true
     })
     .state('landing', {
